@@ -17,7 +17,7 @@ uint8_t Card::getSuit() const
 
 uint8_t Card::getValue() const
 {
-    return isFace() ? 10 : card;
+    return isFace() ? FACE_VALUE : card;
 }
 
 void Card::print() const
