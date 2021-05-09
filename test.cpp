@@ -29,8 +29,9 @@ int main(void)
             card_dealt.print();
             std::cout << "\n";
         }
-        catch (int e)
+        catch (std::exception &e)
         {
+            std::cerr << "Caught: " << e.what() << "\n";
             cards_left = false;
         }
     }

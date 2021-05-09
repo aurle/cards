@@ -21,6 +21,12 @@ Deck::Deck()
     }
 }
 
+struct empty_deck : public std::exception {
+   const char * what () const throw () {
+      return "The deck is empty";
+   }
+};
+
 Card Deck::deal_card()
 {
     if (deck.size())
@@ -31,7 +37,7 @@ Card Deck::deal_card()
     }
     else
     {
-        throw 1; // Throw an exception if no cards are found
+        throw empty_deck(); // Throw an exception if no cards are found
     }
 }
 
