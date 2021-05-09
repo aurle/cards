@@ -28,8 +28,10 @@ Deck::Deck()
     }
 }
 
-struct empty_deck : public std::exception {
-   const char * what () const throw () {
+struct empty_deck : public std::exception
+{
+   const char * what () const throw ()
+   {
       return "The deck is empty";
    }
 };
