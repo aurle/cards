@@ -20,12 +20,15 @@ int main(void)
 
     std::cout << "\nDeal the Cards\n";
 
+    int cards_dealt = 0;
+
     while (cards_left)
     {
         try
         {
             card_dealt = deck.deal_card();
-            std::cout << "Card Dealt: ";
+            cards_dealt++;
+            std::cout << cards_dealt << " Card Dealt: ";
             card_dealt.print();
             std::cout << "\n";
         }
