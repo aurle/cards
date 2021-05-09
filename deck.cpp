@@ -6,12 +6,11 @@
 #include <stdlib.h>
 #include <exception>
 
-// Build a new deck
-// Most common arrangement for a new deck is
-// A->K(hearts) A->K(spades) K->A (Diamonds) K->A (Clubs)
+// Build a new deck in NDO (New Deck Order)
+// A->K(hearts) A->K(clubs) K->A (Diamonds) K->A (Spades)
 Deck::Deck()
 {
-    for (uint8_t suit = hearts; suit <= spades; suit++)
+    for (uint8_t suit = hearts; suit <= clubs; suit++)
     {
         for (uint8_t card = ace; card <= king; card++)
         {
@@ -19,7 +18,7 @@ Deck::Deck()
             deck.push_back(new_card);
         }
     }
-    for (uint8_t suit = diamonds; suit <= clubs; suit++)
+    for (uint8_t suit = diamonds; suit <= spades; suit++)
     {
         for (uint8_t card = king; card >= ace; card--)
         {
