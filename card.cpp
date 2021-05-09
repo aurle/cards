@@ -37,7 +37,7 @@ void Card::print() const
             std::cout << "King";
             break;
         default:
-            std::cout << (int)card;
+            std::cout << +card;
             break;
     }
     std::cout << " of ";

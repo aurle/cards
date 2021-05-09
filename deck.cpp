@@ -11,9 +11,9 @@
 // A->K(hearts) A->K(spades) K->A (Diamonds) K->A (Clubs)
 Deck::Deck()
 {
-    for (int suit = hearts; suit <= spades; suit++)
+    for (uint8_t suit = hearts; suit <= spades; suit++)
     {
-        for (int card = ace; card <= king; card++)
+        for (uint8_t card = ace; card <= king; card++)
         {
             Card new_card(card, suit);
             deck.push_back(new_card);
@@ -39,14 +39,14 @@ void Deck::shuffle()
 {
     srand(time(NULL));
     int items = deck.size();
-    for (int item = 0; item < items; item++)
+    for (uint8_t item = 0; item < items; item++)
     {
         int swap = rand() % items; // Get a random position in the deck
         std::cout << "Swap "; //For debug only
         deck[item].print();   //For debug only
         std::cout << " with ";//For Debug only
         deck[swap].print();   //For Debug only
-        std::cout << " item=" << item << " swap=" << swap << "\n"; //For debug only
+        std::cout << " item=" << +item << " swap=" << swap << "\n"; //For debug only
         std::iter_swap(&deck[item], &deck[swap]);
     }
 }
