@@ -12,7 +12,7 @@ enum cards
 /// \brief The suits available in a deck of cards.
 enum suits
 {
-    hearts, clubs, diamonds, spades
+    hearts, spades, diamonds, clubs 
 };
 
 /// \brief The point value assocated with face cards

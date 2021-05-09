@@ -19,6 +19,14 @@ Deck::Deck()
             deck.push_back(new_card);
         }
     }
+    for (uint8_t suit = diamonds; suit <= clubs; suit++)
+    {
+        for (uint8_t card = king; card >= ace; card--)
+        {
+            Card new_card(card, suit);
+            deck.push_back(new_card);
+        }
+    }
 }
 
 struct empty_deck : public std::exception {
