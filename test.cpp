@@ -14,10 +14,25 @@ int main(void)
     deck.shuffle();
     std::cout << "\nThe shuffled deck\n";
     deck.print();
+
+
+    //std::cout << "Try to create a bogus card\n";
+    //Card bogus_card(0, 10);
     
     Card card_dealt;
     bool cards_left = true;
 
+    std::cout << "Ask for the value of an uninitialized card\n";
+    int value = 0;
+    try
+    {
+        value = card_dealt.getValue();
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    
     std::cout << "\nDeal the Cards\n";
 
     int cards_dealt = 0;

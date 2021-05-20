@@ -37,8 +37,8 @@ class Card
     void print() const;
 
     /// \brief Constructors
-    Card(uint8_t c, uint8_t s) : card(c), suit(s) {};
-    Card() {};
+    Card(uint8_t c, uint8_t s);
+    Card() {card=0, suit=0;};
     
   private:
     /// \brief The card position in the suit
@@ -49,5 +49,11 @@ class Card
 
     /// \brief true if the card is a face card
     bool isFace() const;
+
+    /// \brief returns true if the suit is valid, false if it is not
+    bool isValidSuit() const;
+
+    /// \brief returns true if the card is valid, false if it is not
+    bool isValidCard() const;
 };
 #endif

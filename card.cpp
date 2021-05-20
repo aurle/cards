@@ -3,6 +3,22 @@
  */
 #include "card.h"
 #include <iostream>
+#include <exception>
+
+struct invalid_card : public std::exception
+{
+   const char * what () const throw ()
+   {
+      return "Not a valid card";
+   }
+};
+
+Card::Card(uint8_t c, uint8_t s) : card(c), suit(s) {
+    if (!isValidCard())
+    {
+        throw invalid_card();
+    }
+};
 
 // Public Methods
 uint8_t Card::getCard() const
@@ -12,11 +28,19 @@ uint8_t Card::getCard() const
 
 uint8_t Card::getSuit() const
 {
+    if(!isValidSuit())
+    {
+        throw invalid_card();
+    }
     return suit;
 }
 
 uint8_t Card::getValue() const
 {
+    if (!isValidCard())
+    {
+        throw invalid_card();
+    }
     return isFace() ? FACE_VALUE : card;
 }
 
@@ -62,4 +86,12 @@ void Card::print() const
 bool Card::isFace() const
 {
     return (card == jack || card == queen || card == king) ? true : false;
+}
+bool Card::isValidSuit() const
+{
+    return suit < spades;
+}
+bool Card::isValidCard() const
+{
+    return (card >= ace && card <= king && isValidSuit());
 }
