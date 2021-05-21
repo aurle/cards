@@ -13,7 +13,8 @@ struct invalid_card : public std::exception
    }
 };
 
-Card::Card(uint8_t c, uint8_t s) : card(c), suit(s) {
+Card::Card(uint8_t c, uint8_t s) : card(c), suit(s)
+{
     if (!isValidCard())
     {
         throw invalid_card();
@@ -89,7 +90,7 @@ bool Card::isFace() const
 }
 bool Card::isValidSuit() const
 {
-    return suit < spades;
+    return suit <= spades;
 }
 bool Card::isValidCard() const
 {

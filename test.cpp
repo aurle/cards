@@ -15,9 +15,8 @@ int main(void)
     std::cout << "\nThe shuffled deck\n";
     deck.print();
 
-
-    //std::cout << "Try to create a bogus card\n";
-    //Card bogus_card(0, 10);
+    // std::cout << "Try to create a bogus card\n";
+    // Card bogus_card(0, 10);
     
     Card card_dealt;
     bool cards_left = true;
